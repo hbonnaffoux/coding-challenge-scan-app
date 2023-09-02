@@ -112,3 +112,4 @@ While the current implementation meets the coding challenge requirements, there 
 9. **UI/UX Enhancements**: Collaborate with designers to further improve the overall user interface and user experience, for example update the splash image when launching the app.
 
 10. **Monitoring and Error Tracking**: Integrate a monitoring tool like Sentry to track and analyze errors and crashes, ensuring a more robust and stable application.
+# coding-challenge-scan-app
