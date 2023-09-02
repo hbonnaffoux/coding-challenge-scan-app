@@ -113,3 +113,4 @@ While the current implementation meets the coding challenge requirements, there 
 
 10. **Monitoring and Error Tracking**: Integrate a monitoring tool like Sentry to track and analyze errors and crashes, ensuring a more robust and stable application.
 # coding-challenge-scan-app
+# coding-challenge-scan-app
