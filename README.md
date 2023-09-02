@@ -7,7 +7,6 @@ This repository contains my solution to the coding challenge, which involves imp
 - [Project Overview](#project-overview)
 - [Task Description](#task-description)
 - [Implementation](#implementation)
-- [Design Prototype](#design-prototype)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Improvements](#improvements)
@@ -36,7 +35,7 @@ In this section, I'll briefly explain how I implemented the `ProductItem` compon
 The project's source code is organized as follows:
 
 - **`src/`**: Root directory for the project.
-  - **`components/`**: Contains UI components like `ProductItem`.
+  - **`components/`**: Contains UI components like `ProductItem` (including ProductInfo and ProductImage).
   - **`screens/`**: Houses screens where `ProductItem` is used.
   - **`store/`**: Manages state and includes fetching functions.
   - **`utils/`**: Utility functions and helper modules.
@@ -52,7 +51,7 @@ In this section, I'll briefly explain how I implemented the `ProductItem` compon
 - **ProductItem Component**:
 
   - I created a new `ProductItem` component in the `components/` directory.
-  - The `ProductItem` component receives product data as props and renders the UI according to the provided design requirements.
+  - The `ProductItem` component receives product data (inventory) as props and renders the UI according to the provided design requirements.
   - I used Redux to manage the state of product data and implemented the collapsing/expanding functionality as specified.
 
 - **ProductImage and ProductInfo Components**:
@@ -66,12 +65,6 @@ This component structure promotes code reusability and makes it easier to manage
 
 - I integrated the `ProductItem` component into the relevant screens within the `screens/` directory.
 - Redux actions and reducers were updated to handle the product data required for the `ProductItem` component.
-
-## Design Prototype
-
-I referred to this design throughout the implementation to ensure the component's alignment with the specified requirements.
-
-https://www.figma.com/file/K8J4g5y1QnYZonwgFisvXK/Coding-Challenge?node-id=0%3A1
 
 ## Installation
 
@@ -115,5 +108,4 @@ While the current implementation meets the coding challenge requirements, there 
 9. **UI/UX Enhancements**: Collaborate with designers to further improve the overall user interface and user experience, for example update the splash image when launching the app.
 
 10. **Monitoring and Error Tracking**: Integrate a monitoring tool like Sentry to track and analyze errors and crashes, ensuring a more robust and stable application.
-# coding-challenge-scan-app
-# coding-challenge-scan-app
+
