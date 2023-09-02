@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import CameraScreen from "./CameraScreen";
-import HomeScreen from "./HomeScreen";
+import CameraScreen from "./screens/CameraScreen";
+import HomeScreen from "./screens/HomeScreen";
 import { Provider } from "react-redux";
 import { configureStore } from "./store";
 import React from "react";

@@ -46,7 +46,7 @@ export const inventoryReducer: Reducer<InventoryState, RootAction> = (
         byId: action.payload.reduce((byId, item) => {
           byId[item.id] = item;
           return byId;
-        }, {} as {[id: string]: Inventory}),
+        }, {} as { [id: string]: Inventory }),
         allIds: action.payload.map((item) => item.id)
       };
     case FETCH_INVENTORY_ERROR:
@@ -143,9 +143,7 @@ export const actions = {
         return;
       }
       dispatch({ type: SEND_INVENTORY });
-      fetch(
-        `https://world.openfoodfacts.org/api/v0/product/${data}.json`
-      )
+      fetch(`https://world.openfoodfacts.org/api/v0/product/${data}.json`)
         .then((response) => response.json())
         .then((body) => {
           return fetch(
