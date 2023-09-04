@@ -58,7 +58,7 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
           alignItems: "center",
           justifyContent: "center",
           flex: 1,
-          marginBottom: 20
+          marginBottom: insets.bottom - 30
         }}
       >
         <FlatList
@@ -73,15 +73,27 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
             />
           }
         />
-      </SafeAreaView>
-      <SafeAreaView style={styles.fab}>
-        <FAB
-          icon={() => (
-            <MaterialCommunityIcons name="barcode" size={24} color="#0B5549" />
-          )}
-          label="Scan Product"
-          onPress={() => props.navigation.navigate("Camera")}
-        />
+        <View
+          style={{
+            position: "absolute",
+            width: "100%",
+            flex: 1,
+            alignItems: "center",
+            bottom: insets.bottom
+          }}
+        >
+          <FAB
+            icon={() => (
+              <MaterialCommunityIcons
+                name="barcode"
+                size={24}
+                color="#0B5549"
+              />
+            )}
+            label="Scan Product"
+            onPress={() => props.navigation.navigate("Camera")}
+          />
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -90,7 +102,6 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
 const styles = StyleSheet.create({
   fab: {
     position: "absolute",
-    bottom: 16,
     width: "100%",
     flex: 1,
     alignItems: "center"

@@ -42,7 +42,7 @@ export default ProductItem;
 
 const styles = StyleSheet.create({
   container: {
-    width: width - 16,
+    width: width - 32,
     padding: 8,
     borderRadius: 4,
     backgroundColor: "#F8F9FC",
