@@ -22,14 +22,14 @@ export const ProductImage = ({ showCategories, item }: Props) => {
     <View accessibilityLabel="Product Image" style={styles.imageWrapper}>
       {item?.fields["Product Image"]?.length > 0 ? (
         <Image
-          style={[imageSize]}
+          style={imageSize}
           source={{ uri: item?.fields["Product Image"] }}
         />
       ) : (
         <Image
-          style={[defaultImageSize]}
+          style={defaultImageSize}
           source={{
-            uri: "/Users/hervebonnaffoux/React/scanning-app/coding-challenge/react-native/assets/images/default-product-image.png"
+            uri: "../../assets/images/default-product-image.png"
           }}
         />
       )}
