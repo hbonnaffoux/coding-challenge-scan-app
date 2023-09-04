@@ -18,16 +18,7 @@ export const ProductInfo = ({
   showCategories,
   toggleCategories
 }: Props) => {
-  const [localShowCategories, setLocalShowCategories] =
-    useState(showCategories);
-
   const categories = item?.fields["Product Categories"]?.split(",");
-
-  // Toggle categories visibility
-  const toggleLocalCategories = () => {
-    setLocalShowCategories(!localShowCategories);
-    toggleCategories(); // Call the toggle function from props
-  };
 
   const formattedDate = useMemo(
     () => getFormattedDate(item.createdTime),
@@ -55,12 +46,12 @@ export const ProductInfo = ({
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           {isNew && <New style={{ marginRight: 16 }} />}
           {/* Toggle categories visibility based on the state */}
-          {localShowCategories ? (
-            <TouchableOpacity onPress={toggleLocalCategories}>
+          {showCategories ? (
+            <TouchableOpacity onPress={toggleCategories}>
               <ChevronDown />
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity onPress={toggleLocalCategories}>
+            <TouchableOpacity onPress={toggleCategories}>
               <ChevronUp />
             </TouchableOpacity>
           )}
@@ -68,7 +59,7 @@ export const ProductInfo = ({
       </View>
       <Text style={styles.textDate}>{formattedDate}</Text>
 
-      {localShowCategories && (
+      {showCategories && (
         <View style={styles.categoriesWrapper}>
           {categories?.map((category) => (
             <View key={category} style={styles.categories}>
