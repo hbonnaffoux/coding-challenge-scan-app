@@ -11,9 +11,9 @@ interface IProductItem {
 const ProductItem = ({ item }: IProductItem) => {
   const [showCategories, setShowCategories] = useState(false);
 
-  const toggleCategories = useCallback(() => {
+  const toggleCategories = () => {
     setShowCategories((prevShowCategories) => !prevShowCategories);
-  }, []);
+  };
 
   const containerHeight = showCategories
     ? styles.expandedContainer
