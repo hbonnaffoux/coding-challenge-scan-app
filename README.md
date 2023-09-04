@@ -25,7 +25,6 @@ This implementation is based on the React Native technology stack, which include
 
   <img width="288" alt="Screenshot 2023-09-02 at 20 46 15" src="https://github.com/hbonnaffoux/coding-challenge-scan-app/assets/75268780/d14e3c69-5be1-4d39-ac6a-787c38d426a0">
 
-
 ## Implementation
 
 In this section, I'll briefly explain how I implemented the `ProductItem` component and integrated it into the existing codebase.
@@ -109,3 +108,15 @@ While the current implementation meets the coding challenge requirements, there 
 
 10. **Monitoring and Error Tracking**: Integrate a monitoring tool like Sentry to track and analyze errors and crashes, ensuring a more robust and stable application.
 
+### Task Details (INV-2) - Answer inputs
+
+1. Initialize State and Fetch Initial Inventory
+   We set up a state to track inventory items, loading states, and pagination (offset and total count).
+   The fetchInventory action loads the first set of items (100 items) on app start.
+
+2. Handling Pagination and Loading More Data
+   We create a fetchMoreInventory action for loading additional items when users scroll to the end.
+   A threshold determines when to load more items.
+
+3. Update React Native Component
+   We update our Flatlist component by seting up an "onEndReached" callback and a threshold. When the user gets within this threshold we trigger the function loadMoreData.
