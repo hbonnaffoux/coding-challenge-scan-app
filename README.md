@@ -23,8 +23,6 @@ This implementation is based on the React Native technology stack, which include
 - **Subject:** Product list redesign
 - **Description:** The challenge was to create a `ProductItem` component that adheres to the new design specifications. The component should display the product name, date, a "New" icon if the date is within the last 7 days, product images (with placeholders for missing images), and product categories as individual "Tags." Additionally, it should support collapsing and expanding, as shown in the design prototype.
 
-  <img width="288" alt="Screenshot 2023-09-02 at 20 46 15" src="https://github.com/hbonnaffoux/coding-challenge-scan-app/assets/75268780/d14e3c69-5be1-4d39-ac6a-787c38d426a0">
-
 ## Implementation
 
 In this section, I'll briefly explain how I implemented the `ProductItem` component and integrated it into the existing codebase.
