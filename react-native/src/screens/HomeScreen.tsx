@@ -55,9 +55,7 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
 
       <SafeAreaView
         style={{
-          alignItems: "center",
-          justifyContent: "center",
-          flex: 1,
+          ...styles.listWrapper,
           marginBottom: insets.bottom - 30
         }}
       >
@@ -73,15 +71,7 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
             />
           }
         />
-        <View
-          style={{
-            position: "absolute",
-            width: "100%",
-            flex: 1,
-            alignItems: "center",
-            bottom: insets.bottom
-          }}
-        >
+        <View style={{ ...styles.fabWrapper, bottom: insets.bottom }}>
           <FAB
             icon={() => (
               <MaterialCommunityIcons
@@ -106,8 +96,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center"
   },
+  fabWrapper: {
+    position: "absolute",
+    width: "100%",
+    flex: 1,
+    alignItems: "center"
+  },
   container: {
     flex: 1,
     backgroundColor: "white"
+  },
+  listWrapper: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1
   }
 });

@@ -33,9 +33,13 @@ export const ProductInfo = ({
           <Text
             style={[
               styles.textName,
-              showCategories
-                ? { width: 120 } // Set width when categories are displayed
-                : { width: 130 } // Set width when categories are not displayed
+              showCategories && isNew
+                ? { width: 140 }
+                : isNew
+                ? { width: 150 }
+                : showCategories
+                ? { width: 220 }
+                : { width: 220 }
             ]}
             ellipsizeMode="tail"
             numberOfLines={1}
