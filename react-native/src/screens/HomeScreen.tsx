@@ -2,7 +2,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useEffect } from "react";
 import {
   RefreshControl,
-  ScrollView,
   StyleSheet,
   View,
   FlatList,
@@ -12,7 +11,10 @@ import { Appbar, FAB } from "react-native-paper";
 import { useSelector, useDispatch } from "react-redux";
 import { selectors, actions, Inventory } from "../store/inventory";
 import { RootState } from "../store";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaInsets
+} from "react-native-safe-area-context";
 import { StackScreenProps } from "@react-navigation/stack";
 import { StackParamList } from "../App";
 import ProductItem from "../components/ProductItem";
@@ -43,32 +45,35 @@ export default (props: StackScreenProps<StackParamList, "Home">) => {
     return unsubscribe;
   }, [props.navigation]);
 
+  const insets = useSafeAreaInsets(); // Get safe area insets
+
   return (
     <View style={styles.container}>
       <Appbar.Header>
         <Appbar.Content title="Inventory" />
       </Appbar.Header>
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{ flex: 1 }}
-        refreshControl={
-          <RefreshControl
-            refreshing={fetching}
-            onRefresh={() => dispatch(actions.fetchInventory())}
-          />
-        }
+      <SafeAreaView
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          flex: 1,
+          marginBottom: 20
+        }}
       >
-        <SafeAreaView style={styles.listItems}>
-          <FlatList
-            data={inventory}
-            renderItem={renderItem}
-            ListEmptyComponent={ListEmptyComponent}
-            showsVerticalScrollIndicator={false}
-          />
-        </SafeAreaView>
-      </ScrollView>
-
+        <FlatList
+          data={inventory}
+          renderItem={renderItem}
+          ListEmptyComponent={ListEmptyComponent}
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={fetching}
+              onRefresh={() => dispatch(actions.fetchInventory())}
+            />
+          }
+        />
+      </SafeAreaView>
       <SafeAreaView style={styles.fab}>
         <FAB
           icon={() => (
@@ -93,6 +98,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white"
-  },
-  listItems: { alignItems: "center", marginBottom: 100 }
+  }
 });

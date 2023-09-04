@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { View, StyleSheet, Platform } from "react-native";
+import { View, StyleSheet, Platform, Dimensions } from "react-native";
 import { Inventory } from "../store/inventory";
 import { ProductImage } from "./ProductImage";
 import { ProductInfo } from "./ProductInfo";
@@ -7,6 +7,8 @@ import { ProductInfo } from "./ProductInfo";
 interface IProductItem {
   item: Inventory;
 }
+
+const { width } = Dimensions.get("window"); // Get the screen width
 
 const ProductItem = ({ item }: IProductItem) => {
   const [showCategories, setShowCategories] = useState(false);
@@ -40,7 +42,7 @@ export default ProductItem;
 
 const styles = StyleSheet.create({
   container: {
-    width: 343,
+    width: width - 16,
     padding: 8,
     borderRadius: 4,
     backgroundColor: "#F8F9FC",
