@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { Inventory } from "../store/inventory";
+import defaultImage from "../../assets/images/default-product-image.png";
 
 type Props = {
   item: Inventory;
@@ -26,12 +27,7 @@ export const ProductImage = ({ showCategories, item }: Props) => {
           source={{ uri: item?.fields["Product Image"] }}
         />
       ) : (
-        <Image
-          style={defaultImageSize}
-          source={{
-            uri: "../../assets/images/default-product-image.png"
-          }}
-        />
+        <Image style={defaultImageSize} source={defaultImage} />
       )}
     </View>
   );

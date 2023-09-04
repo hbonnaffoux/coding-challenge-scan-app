@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { ChevronDown } from "../../assets/icons/ChevronDown";
 import { ChevronUp } from "../../assets/icons/ChevronUp";
 import { New } from "../../assets/icons/New";
 import { getFormattedDate } from "../utils/getFormattedDate";
 import { Inventory } from "../store/inventory";
+import { isNewProduct } from "../utils/isNewProduct";
 
 type Props = {
   item: Inventory;
@@ -20,22 +21,6 @@ export const ProductInfo = ({
   const [localShowCategories, setLocalShowCategories] =
     useState(showCategories);
 
-  const inputDate = item.createdTime;
-  const formattedDate = getFormattedDate(inputDate);
-
-  const productDate = new Date(inputDate);
-  const currentDate = new Date();
-  const sevenDaysAgo = new Date();
-  sevenDaysAgo.setDate(currentDate.getDate() - 7);
-
-  const productTimestamp = productDate.getTime();
-  const sevenDaysAgoTimestamp = sevenDaysAgo.getTime();
-  const currentTimestamp = currentDate.getTime();
-
-  const isNew =
-    productTimestamp >= sevenDaysAgoTimestamp &&
-    productTimestamp <= currentTimestamp;
-
   const categories = item?.fields["Product Categories"]?.split(",");
 
   // Toggle categories visibility
@@ -43,6 +28,12 @@ export const ProductInfo = ({
     setLocalShowCategories(!localShowCategories);
     toggleCategories(); // Call the toggle function from props
   };
+
+  const formattedDate = useMemo(
+    () => getFormattedDate(item.createdTime),
+    [item]
+  );
+  const isNew = useMemo(() => isNewProduct(item.createdTime), [item]);
 
   return (
     <View accessibilityLabel="Product Info" style={styles.infoContainer}>
